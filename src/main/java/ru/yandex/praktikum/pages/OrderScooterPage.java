@@ -37,7 +37,7 @@ public class OrderScooterPage {
     }
 
     public void scrollDownButtonCreate() {
-        WebElement element = driver.findElement(By.xpath(".//div[contains(@class, 'Home_FinishButton')]/button"));//делаем скролл до нижней кнопки Заказать
+        WebElement element = driver.findElement(downOrderButton);//делаем скролл до нижней кнопки Заказать
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 

@@ -1,4 +1,4 @@
-package PageObject;
+package ru.yandex.praktikum.page.object.test;
 
 import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;

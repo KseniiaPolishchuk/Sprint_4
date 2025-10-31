@@ -1,4 +1,4 @@
-package PageObject;
+package ru.yandex.praktikum.page.object.test;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -82,11 +82,12 @@ public class OrderScooter {
         orderScooterPage.clickButtonYes();//нажали на кнопку Да
         orderScooterPage.checkedPopUpHeaderAfterCreateOrder();// проверили, что заказ оформлен
 
-
+        //Открываем главную страницу
         orderScooterPage.openMainPage();
-
+        //Делаем скролл до нижней кнопки Заказать
         orderScooterPage.scrollDownButtonCreate();
 
+        //Нажимаем на нижнюю кнопку Заказать
         orderScooterPage.clickDownButtonCreate();
 
 
