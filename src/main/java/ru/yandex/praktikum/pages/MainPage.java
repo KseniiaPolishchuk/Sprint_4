@@ -14,6 +14,7 @@ public class MainPage {
 
 
     private By acceptCookieButton = By.xpath(".//button[text()='да все привыкли']");
+    private By scrollTheElement = By.xpath(".//div[@class='accordion']");
 
 
     public MainPage(WebDriver driver) {
@@ -21,7 +22,7 @@ public class MainPage {
     }
 
     public void scrollTheElement() {
-        WebElement element = driver.findElement(By.xpath(".//div[@class='accordion']"));
+        WebElement element = driver.findElement(scrollTheElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
