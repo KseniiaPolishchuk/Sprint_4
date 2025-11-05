@@ -9,7 +9,7 @@ import ru.yandex.praktikum.pages.OrderScooterPage;
 
 
 @RunWith(Parameterized.class)
-public class OrderScooter {
+public class OrderScooterUpButton {
 
     @Rule
     public DriverFactoryHomePage  factoryHomePage = new DriverFactoryHomePage();
@@ -24,7 +24,7 @@ public class OrderScooter {
     private  String colour;
     private  String comment;
 
-    public OrderScooter(String name, String surname, String address,String stateMetro, String telephone, String date, String durationRent, String colour, String comment) {
+    public OrderScooterUpButton(String name, String surname, String address, String stateMetro, String telephone, String date, String durationRent, String colour, String comment) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -69,34 +69,6 @@ public class OrderScooter {
         orderScooterPage.completeStateMetro(stateMetro);//заполнили поле метро
         orderScooterPage.completeFieldTelephone(telephone);//заполнили поле телефон
 
-        orderScooterPage.clickButtonNext();//нажали на кнопку далее
-
-
-        orderScooterPage.completeFieldDate(date);//заполнили поле дата
-        orderScooterPage.clickFieldDurationRent();//нажали на поле срока аренды
-        orderScooterPage.completeFieldDurationRent(durationRent);//заполнили поле
-        orderScooterPage.completeColour(colour);//заполнили поле цвета
-        orderScooterPage.leftComment(comment);//оставили комментарий
-
-        orderScooterPage.clickCreateOrderButton();//нажали на кнопку создать заказ
-        orderScooterPage.clickButtonYes();//нажали на кнопку Да
-        orderScooterPage.checkedPopUpHeaderAfterCreateOrder();// проверили, что заказ оформлен
-
-        //Открываем главную страницу
-        orderScooterPage.openMainPage();
-        //Делаем скролл до нижней кнопки Заказать
-        orderScooterPage.scrollDownButtonCreate();
-
-        //Нажимаем на нижнюю кнопку Заказать
-        orderScooterPage.clickDownButtonCreate();
-
-
-        orderScooterPage.completeFieldName(name);// заполнили поле Имя
-        orderScooterPage.completeFieldSurname(surname);//заполнили поле фамилия
-        orderScooterPage.completeFieldAddress(address);//заполнили поле адрес
-        orderScooterPage.clickFieldStateMetro();//нажали на поле метро
-        orderScooterPage.completeStateMetro(stateMetro);//заполнили поле метро
-        orderScooterPage.completeFieldTelephone(telephone);
         orderScooterPage.clickButtonNext();//нажали на кнопку далее
 
 
