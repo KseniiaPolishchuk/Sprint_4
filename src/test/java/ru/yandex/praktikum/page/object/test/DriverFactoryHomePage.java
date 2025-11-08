@@ -11,7 +11,6 @@ public class DriverFactoryHomePage extends ExternalResource {
     private WebDriver driver;
 
     public WebDriver getDriver(){
-
         return driver;
     }
 

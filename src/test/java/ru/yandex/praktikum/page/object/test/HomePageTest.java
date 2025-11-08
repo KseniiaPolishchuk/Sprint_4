@@ -4,11 +4,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.praktikum.pages.MainPage;
-
-import static ru.yandex.praktikum.pages.MainPage.*;
 
 
 @RunWith(Parameterized.class)
@@ -18,14 +15,10 @@ public class HomePageTest{
     public DriverFactoryHomePage  factoryHomePage = new DriverFactoryHomePage();
 
     public int questionNumber;
-    public By question;
-    public By answer;
     public String textAnswer;
 
-    public HomePageTest(int questionNumber, By question, By answer, String textAnswer) {
+    public HomePageTest(int questionNumber, String textAnswer) {
         this.questionNumber = questionNumber;
-        this.question = question;
-        this.answer = answer;
         this.textAnswer = textAnswer;
 
     }
@@ -33,14 +26,14 @@ public class HomePageTest{
         @Parameterized.Parameters
         public static Object[][] getParameters() {
             return new Object[][]{
-                    { 0, FIRST_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_FIRST_QUESTION, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
-                    { 1, SECOND_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_SECOND_QUESTION, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."},
-                    { 2, THIRD_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_THIRD_QUESTION, "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30."},
-                    { 3, FOURTH_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_FOURTH_QUESTION, "Только начиная с завтрашнего дня. Но скоро станем расторопнее."},
-                    { 4, FIFTH_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_FIFTH_QUESTION, "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010."},
-                    { 5, SIXTH_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_SIXTH_QUESTION, "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится."},
-                    { 6, SEVENTH_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_SEVENTH_QUESTION, "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои."},
-                    { 7, EIGHT_QUESTION_DOWN_THE_PAGE, ANSWER_TO_THE_EIGHTH_QUESTION, "Да, обязательно. Всем самокатов! И Москве, и Московской области."},
+                    { 0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
+                    { 1, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."},
+                    { 2, "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30."},
+                    { 3, "Только начиная с завтрашнего дня. Но скоро станем расторопнее."},
+                    { 4, "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010."},
+                    { 5, "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится."},
+                    { 6, "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои."},
+                    { 7, "Да, обязательно. Всем самокатов! И Москве, и Московской области."},
             };
         }
     @Test
@@ -52,9 +45,21 @@ public class HomePageTest{
         mainPage.openMainPage();
         mainPage.clickAcceptCookieButton();
         mainPage.scrollTheElement();
-        mainPage.clickQuestion(question);
-        mainPage.getTextAnswerComparingWithTheExpected(answer, textAnswer);
-
-
+        mainPage.clickQuestionOne();
+        mainPage.getTextAnswerComparingWithTheExpectedOne();
+        mainPage.clickQuestionTwo();
+        mainPage.getTextAnswerComparingWithTheExpectedSecond();
+        mainPage.clickQuestionThree();
+        mainPage.getTextAnswerComparingWithTheExpectedThird();
+        mainPage.clickQuestionFour();
+        mainPage.getTextAnswerComparingWithTheExpectedFourth();
+        mainPage.clickQuestionFive();
+        mainPage.getTextAnswerComparingWithTheExpectedFifth();
+        mainPage.clickQuestionSix();
+        mainPage.getTextAnswerComparingWithTheExpectedSixth();
+        mainPage.clickQuestionSeven();
+        mainPage.getTextAnswerComparingWithTheExpectedSeventh();
+        mainPage.clickQuestionEight();
+        mainPage.getTextAnswerComparingWithTheExpectedEight();
     }
 }
