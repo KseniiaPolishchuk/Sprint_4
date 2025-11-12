@@ -1,12 +1,11 @@
 package ru.yandex.praktikum.pages;
 
-import org.hamcrest.MatcherAssert;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static org.hamcrest.CoreMatchers.is;
 
 public class MainPage {
 
@@ -54,59 +53,66 @@ public class MainPage {
         driver.findElement(acceptCookieButton).click();
     }
 
-    public  void openMainPage() {
+    public void openMainPage() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
     }
 
-    public void clickQuestionOne() {
-        driver.findElement(FIRST_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionTwo() {
-        driver.findElement(SECOND_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionThree() {
-        driver.findElement(THIRD_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionFour() {
-        driver.findElement(FOURTH_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionFive() {
-        driver.findElement(FIFTH_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionSix() {
-        driver.findElement(SIXTH_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionSeven() {
-        driver.findElement(SEVENTH_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void clickQuestionEight() {
-        driver.findElement(EIGHT_QUESTION_DOWN_THE_PAGE).click();
-    }
-    public void getTextAnswerComparingWithTheExpectedOne() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_FIRST_QUESTION).getText(), is(TEXT_ANSWER_FIRST_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedSecond() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_SECOND_QUESTION).getText(), is(TEXT_ANSWER_SECOND_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedThird() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_THIRD_QUESTION).getText(), is(TEXT_ANSWER_THIRD_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedFourth() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_FOURTH_QUESTION).getText(), is(TEXT_ANSWER_FOURTH_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedFifth() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_FIFTH_QUESTION).getText(), is(TEXT_ANSWER_FIFTH_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedSixth() {
-       MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_SIXTH_QUESTION).getText(), is(TEXT_ANSWER_SIXTH_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedSeventh() {
-       MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_SEVENTH_QUESTION).getText(), is(TEXT_ANSWER_SEVENTH_QUESTION));
-    }
-    public void getTextAnswerComparingWithTheExpectedEight() {
-        MatcherAssert.assertThat(driver.findElement(ANSWER_TO_THE_EIGHTH_QUESTION).getText(), is(TEXT_ANSWER_EIGHTH_QUESTION));
+    public void clickTheQuestion(int questionNumber) {
+        switch (questionNumber) {
+            case 0:
+                driver.findElement(FIRST_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 1:
+                driver.findElement(SECOND_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 2:
+                driver.findElement(THIRD_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 3:
+                driver.findElement(FOURTH_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 4:
+                driver.findElement(FIFTH_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 5:
+                driver.findElement(SIXTH_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 6:
+                driver.findElement(SEVENTH_QUESTION_DOWN_THE_PAGE).click();
+                break;
+            case 7:
+                driver.findElement(EIGHT_QUESTION_DOWN_THE_PAGE).click();
+                break;
+        }
     }
 
+    public void getText(String textAnswer) {
+        switch (textAnswer) {
+            case "Сутки — 400 рублей. Оплата курьеру — наличными или картой.":
+                Assert.assertEquals(TEXT_ANSWER_FIRST_QUESTION, driver.findElement(ANSWER_TO_THE_FIRST_QUESTION).getText());
+                break;
+            case "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.":
+                Assert.assertEquals(TEXT_ANSWER_SECOND_QUESTION, driver.findElement(ANSWER_TO_THE_SECOND_QUESTION).getText());
+                break;
+            case "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.":
+                Assert.assertEquals(TEXT_ANSWER_THIRD_QUESTION, driver.findElement(ANSWER_TO_THE_THIRD_QUESTION).getText());
+                break;
+            case "Только начиная с завтрашнего дня. Но скоро станем расторопнее.":
+                Assert.assertEquals(TEXT_ANSWER_FOURTH_QUESTION, driver.findElement(ANSWER_TO_THE_FOURTH_QUESTION).getText());
+                break;
+            case "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.":
+                Assert.assertEquals(TEXT_ANSWER_FIFTH_QUESTION, driver.findElement(ANSWER_TO_THE_FIFTH_QUESTION).getText());
+                break;
+            case "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.":
+                Assert.assertEquals(TEXT_ANSWER_SIXTH_QUESTION, driver.findElement(ANSWER_TO_THE_SIXTH_QUESTION).getText());
+                break;
+            case "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.":
+                Assert.assertEquals(TEXT_ANSWER_SEVENTH_QUESTION, driver.findElement(ANSWER_TO_THE_SEVENTH_QUESTION).getText());
+                break;
+            case "Да, обязательно. Всем самокатов! И Москве, и Московской области.":
+            Assert.assertEquals(TEXT_ANSWER_EIGHTH_QUESTION, driver.findElement(ANSWER_TO_THE_EIGHTH_QUESTION).getText());
+                break;
+        }
+    }
 }
-
 

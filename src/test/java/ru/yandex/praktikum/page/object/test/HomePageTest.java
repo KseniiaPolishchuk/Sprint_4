@@ -45,21 +45,7 @@ public class HomePageTest{
         mainPage.openMainPage();
         mainPage.clickAcceptCookieButton();
         mainPage.scrollTheElement();
-        mainPage.clickQuestionOne();
-        mainPage.getTextAnswerComparingWithTheExpectedOne();
-        mainPage.clickQuestionTwo();
-        mainPage.getTextAnswerComparingWithTheExpectedSecond();
-        mainPage.clickQuestionThree();
-        mainPage.getTextAnswerComparingWithTheExpectedThird();
-        mainPage.clickQuestionFour();
-        mainPage.getTextAnswerComparingWithTheExpectedFourth();
-        mainPage.clickQuestionFive();
-        mainPage.getTextAnswerComparingWithTheExpectedFifth();
-        mainPage.clickQuestionSix();
-        mainPage.getTextAnswerComparingWithTheExpectedSixth();
-        mainPage.clickQuestionSeven();
-        mainPage.getTextAnswerComparingWithTheExpectedSeventh();
-        mainPage.clickQuestionEight();
-        mainPage.getTextAnswerComparingWithTheExpectedEight();
+        mainPage.clickTheQuestion(questionNumber);
+        mainPage.getText(textAnswer);
     }
 }
